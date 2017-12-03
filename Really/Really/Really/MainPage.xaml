@@ -8,7 +8,7 @@
             <Label Text="新概念英语第二册汉译英 - Lesson17 Always young "
                 HorizontalOptions="CenterAndExpand" />
             <BoxView HeightRequest="25" BackgroundColor="Silver">
-                hello!
+                
             </BoxView>
             
 
