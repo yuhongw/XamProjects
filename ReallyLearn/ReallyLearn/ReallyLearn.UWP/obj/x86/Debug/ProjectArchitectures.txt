@@ -1,0 +1,2 @@
+E:\projs\xam\XamProjects\ReallyLearn\ReallyLearn\ReallyLearn.UWP\ReallyLearn.UWP.csproj;x86
+E:\projs\xam\XamProjects\ReallyLearn\ReallyLearn\ReallyLearn\ReallyLearn.csproj;neutral

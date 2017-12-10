@@ -11,12 +11,12 @@
 
             </BoxView>
 
-
             <Label x:Name="labCh" HeightRequest="100" ></Label>
             <Label x:Name="labEn" HeightRequest="100" ></Label>
             <Label x:Name="labDuration" ></Label>
-            <Slider x:Name="slider" Maximum="100"></Slider>
-            
+            <Slider x:Name="slider"   Maximum="100"></Slider>
+
+
             <StackLayout Orientation="Horizontal" >
                 <Button Text="Prev &lt;" x:Name="btnPrev" Clicked="btnPrev_Clicked"  HorizontalOptions="FillAndExpand" ></Button>
                 <Button Text="Hint H"  HorizontalOptions="FillAndExpand" ></Button>

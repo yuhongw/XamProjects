@@ -14,14 +14,17 @@ namespace ReallyLearn
         Lesson Lesson;
         Plugin.SimpleAudioPlayer.Abstractions.ISimpleAudioPlayer Player;
         int i = 0;
-        string LessonFile = "lesson17.txt";
+        string LessonFile = "1.rtf.txt";
+        string vocFile = "1.mp3";
+
         public MainPage()
         {
             InitializeComponent();
             this.Player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            this.Player.Load(Helpers.Helper.GetResourceStream($"{this.LessonFile}.mp3"));
-            labDuration.Text = this.Player.Duration.ToString();
-            Lesson = Lesson.Init(Helpers.Helper.GetResourceText(this.LessonFile));
+            this.Player.Load(Helpers.Helper.GetResourceStream(vocFile));
+
+            Lesson =  LessonTxtParser1.Instance.Parse(Helpers.Helper.GetResourceText(this.LessonFile));
+            //Lesson = Lesson.Init(Helpers.Helper.GetResourceText(this.LessonFile));
             ShowCurrentSentence();
         }
 
@@ -59,6 +62,8 @@ namespace ReallyLearn
             }
             Player.Seek(slider.Value);
             Player.Play();
+            
+
         }
 
         private void btnPrev_Clicked(object sender, EventArgs e)
@@ -66,6 +71,14 @@ namespace ReallyLearn
             i--;
             if (i < 0) i = Lesson.Sentences.Count - 1;
             ShowCurrentSentence();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            labDuration.Text = this.Player.Duration.ToString();
+            slider.Maximum = this.Player.Duration;
+            
         }
     }
 }

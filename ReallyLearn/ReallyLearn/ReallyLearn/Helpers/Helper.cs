@@ -19,8 +19,10 @@ namespace ReallyLearn.Helpers
         public static string GetResourceText(string fn)
         {
             Stream stream = GetResourceStream(fn);
+            
             using (var reader = new StreamReader(stream))
             {
+                
                 return reader.ReadToEnd();
             }
         }

@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Learn\Lesson.cs" />
+    <Compile Include="Learn\LessonTxtParser1.cs" />
     <Compile Include="Learn\Sentence.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -77,12 +78,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\lesson17.txt">
+    <EmbeddedResource Include="Resources\1.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\lesson17.txt.mp3">
+    <EmbeddedResource Include="Resources\1.rtf.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

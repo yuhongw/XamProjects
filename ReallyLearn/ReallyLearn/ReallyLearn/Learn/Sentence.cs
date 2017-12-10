@@ -8,5 +8,7 @@ namespace ReallyLearn.Learn
     {
         public string Chinese { get; set; }
         public string English { get; set; }
+        public float VocSt { get; set; }
+        public float VocEd { get; set; }
     }
 }
