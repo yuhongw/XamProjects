@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+
 namespace ReallyLearn
 {
     public partial class MainPage : ContentPage
@@ -14,9 +15,10 @@ namespace ReallyLearn
         Lesson Lesson;
         Plugin.SimpleAudioPlayer.Abstractions.ISimpleAudioPlayer Player;
         int i = 0;
+        int k = 0;
         string LessonFile = "1.rtf.txt";
         string vocFile = "1.mp3";
-
+        
         public MainPage()
         {
             InitializeComponent();
@@ -26,15 +28,20 @@ namespace ReallyLearn
             Lesson =  LessonTxtParser1.Instance.Parse(Helpers.Helper.GetResourceText(this.LessonFile));
             //Lesson = Lesson.Init(Helpers.Helper.GetResourceText(this.LessonFile));
             ShowCurrentSentence();
+            RepeatExec(1000, () => { k++; labTest.Text = k.ToString(); });
+            
+        }
+
+        private async Task RepeatExec(int milisec,  Action actionToExecute)
+        {
+            while (true)
+            {
+                await Task.Delay(milisec);
+                actionToExecute();
+            }
         }
 
         private void ShowCurrentSentence()
-        {
-            ShowSentence(i);
-        }
-
-
-        private void ShowSentence(int i)
         {
             labCh.Text = Lesson.Sentences[i].Chinese;
             labEn.Text = Lesson.Sentences[i].English;
@@ -60,10 +67,9 @@ namespace ReallyLearn
             {
                 Player.Stop();
             }
-            Player.Seek(slider.Value);
+            Player.Seek(this.Lesson.Sentences[i].VocSt);
             Player.Play();
             
-
         }
 
         private void btnPrev_Clicked(object sender, EventArgs e)
