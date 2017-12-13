@@ -28,8 +28,19 @@ namespace ReallyLearn
             Lesson =  LessonTxtParser1.Instance.Parse(Helpers.Helper.GetResourceText(this.LessonFile));
             //Lesson = Lesson.Init(Helpers.Helper.GetResourceText(this.LessonFile));
             ShowCurrentSentence();
-            RepeatExec(1000, () => { k++; labTest.Text = k.ToString(); });
+            RepeatExec(100, Timer);
             
+        }
+
+        private void Timer()
+        {
+            if (Player?.IsPlaying??false)
+            {
+                if (Player.CurrentPosition >= Lesson.Sentences[i].VocEd)
+                {
+                    Player.Stop();
+                }
+            }
         }
 
         private async Task RepeatExec(int milisec,  Action actionToExecute)
